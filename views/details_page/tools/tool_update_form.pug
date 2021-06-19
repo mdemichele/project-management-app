@@ -1,0 +1,5 @@
+form(method='POST' action='/projects/tools/update')
+  div
+    input(type='hidden', name='projectId', required='true', value=id)
+    input(type='hidden', name='toolName', required='true', value=tool.name)
+  button(type='submit') Update Tool

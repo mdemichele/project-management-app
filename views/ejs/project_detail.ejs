@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<head>
+  <title><%= title %></title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  
+  <!--Fonts-->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;900&display=swap" rel="stylesheet"/>
+  
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+
+<body>
+  
+  <!-- Title Section -->
+  <div class="project-detail-title-container">
+    <h1><%= title %></h1>
+  </div>
+  
+  <!-- Tool, Material, and Budget Section -->
+  <div class="project-detail-body-container">
+    
+    <!-- Tools-->
+    <div class="tools-container">
+      <form method="POST" action="/projects/tools/create">
+        <div class="detail-add-tool-form">
+          <input type="hidden" name="projectId" value=<%= id %>/>
+          <input type="text" placeholder="Enter tool" name="tool" value=""/>
+        </div>
+        <button type="submit">Submit:</button>
+      </form>
+      
+      <!-- Need to implement error handling view -->
+      
+      <% if (tools !== undefined) %>
+        <ul>
+          <%= tools.forEach(function(tool) { %>
+            <li> <%=tool.name %></li>
+            <!-- Delete Button -->
+            <form method="POST" action="/projects/tools/delete">
+              <div>
+                <input type="hidden" name="projectId" required="true" value=<%= id %> />
+                <input type="hidden" name="toolId" required="true" value=<%= tool.id %> />
+              </div>
+              <button type="submit">Delete Tool</button>
+            </form>
+            <% }) %>
+          </ul>
+            
+            <!-- Update Button -->
+      </div>
+         
+      <!-- Materials -->
+      <div class="materials-container">
+        <form method="POST" action="/projects/materials/create">
+          <div class="detail-add-material-form">
+            <input type="hidden" name="projectId" value=<%= id %>/>
+            <input type="text" placeholder="Enter Material" name="material" value=""/>
+          </div>
+          <button type="submit">Submit:</button>
+        </form>
+        
+        <!-- Need to implement error handling view -->
+        
+        <% if (materials !== undefined) %>
+          <ul>
+            <% for (material in materials) %>
+              <li> <%=material.name %></li>
+              <!-- Delete Button -->
+              <form method="POST" action="/projects/materials/delete">
+                <div>
+                  <input type="hidden" name="projectId" required="true" value=<%= id %> />
+                  <input type="hidden" name="toolId" required="true" value=<%= material.id %> />
+                </div>
+                <button type="submit">Delete Tool</button>
+              </form>
+              
+              <!-- Update Button -->    
+      </div>
+      
+    </div>
+    
+    <!-- Budget Section -->
+    <div class="budget-container">
+      
+    </div>
+  </div>
+  
+  <!-- Footer Section -->
+  <div class="project-detail-footer-container">
+    <a href="/projects">Back to All Projects</a>
+    
+    <p> Delete this Project </p>
+    <form method="POST" action="/projects/delete">
+      <input type="hidden" name="projectId" required="true" value="<%=id%>"/>
+    </form>
+  </div>
+  
+</body>

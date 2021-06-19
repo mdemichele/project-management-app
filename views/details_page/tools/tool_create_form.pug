@@ -1,0 +1,5 @@
+form(method='POST' action='/projects/tools/create').add-item-form
+  input(type='hidden', name='projectId', value=id)
+  input(type='text', placeholder='name' name='tool' value='')
+  input(type='text', placeholder='price' name='toolPrice' value='')
+  button(type='submit') Add

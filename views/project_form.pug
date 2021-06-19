@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  
+  div.create-new-project-container
+    a(href='/projects') Back to All Projects
+    h1 #{title}
+  
+    form(method='POST' action='')
+      div.create-new-project-form
+        input(type='text', placeholder='Enter Project title' name='title' value=(project===undefined ? '': project.title))
+      button(type='submit') Submit
+    
+    if errors
+      ul
+        for error in errors
+          li= error.msg 

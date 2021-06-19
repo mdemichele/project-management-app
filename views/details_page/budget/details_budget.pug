@@ -1,0 +1,21 @@
+div
+  - var total_tools = 0
+  -var total_materials = 0
+  each tool in tools 
+    - total_tools = total_tools + tool.price 
+  each material in materials 
+    - total_materials = total_materials + material.price
+    
+  div#budget-pie-chart
+  
+  p(style="display: none;")#tool-budget= total_tools
+  p(style="display: none;")#material-budget= total_materials
+
+
+
+  script(src="https://d3js.org/d3.v4.min.js")
+  script(src="/js/d3-budget-pie-chart.js")
+  
+  
+  
+  

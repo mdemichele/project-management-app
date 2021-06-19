@@ -1,0 +1,569 @@
+/* Resets */
+body {
+  margin: 0px;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+a {
+  color: #aa647b; /* dark red */
+  text-decoration: none;
+}
+
+h2, h3, ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+button {
+  border: none;
+}
+
+button:hover {
+  cursor: pointer; 
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* Theme Stylings */
+.small-section-title {
+  text-align: center;
+  padding-bottom: 5%;
+}
+
+/* Header Section */
+div.navbar {
+  padding: 0px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ebecf0;
+}
+
+div.navbar a {
+  text-decoration: none;
+  color: black;
+}
+
+div.navbar i {
+  font-size: 20px;
+}
+
+div.home-button {
+  width: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+/* Footer Section */
+.footer {
+  background-color: #648ca6;
+  padding: 20px;
+  margin: auto;
+  background-color: #648ca6;
+  position: relative;
+  text-align: center;
+  font-size: 12px;
+  color: white;
+}
+
+
+/* Simple Home Page Stylings */
+.home-header {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 3% 0%; 
+}
+
+.home-login-section {
+  width: 100%;
+  padding: 3% 0%;
+  background-color: #a0b3b0;
+}
+
+.home-login-section .login-form input {
+  color: white;
+}
+
+.login-form {
+  background: #13232f;
+  padding: 40px;
+  max-width: 600px;
+  margin: 40px auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px 4px #13232f;
+}
+
+.tab-group {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+
+.tab-group::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.tab-group li a {
+  display: block;
+  text-decoration: none;
+  padding: 15px;
+  background: #a0b3b0;
+  color: #1ab188;
+  font-size: 20px;
+  float: left;
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+  transition: .5s ease;
+}
+
+.tab-group .active a {
+  background: #1ab188;
+  color: white;
+}
+
+.tab-content .form-section {
+  display: none;
+}
+
+.tab-content .active {
+display: block;
+}
+
+.tab-content h1 {
+  text-align: center;
+  font-weight: 400;
+  color: white;
+  margin: 0 0 40px;
+}
+
+.field-wrap {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+input, textarea {
+  font-size: 22px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 5px 10px;
+  background: none;
+  background-image: none;
+  border: 1px solid gray;
+  color: black;
+  border-radius: 0;
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+textarea {
+  border: 2px solid gray;
+  resize: vertical;
+}
+
+.top-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.top-row div {
+  float: left;
+  width: 48%;
+  margin-right:4%;
+}
+
+.top-row div:last-child {
+  margin: 0;
+}
+
+.tab-content .button {
+  border: 0;
+  outline: none;
+  border-radius: 0;
+  padding: 15px 0;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  background: #1ab188;
+  color: white;
+  transition: all .5s ease;
+  -webkit-appearance: none;
+}
+
+.tab-content .button-block {
+  display: block;
+  width: 100%;
+}
+
+.forgot {
+  margin-top:-20px;
+  text-align:right;
+}
+
+/* Grid Stylings */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr; /* Sidenav is hidden on mobile */
+  grid-template-rows: 1fr;
+  grid-template-areas: 
+    "main";
+  /* height: 100vh; */
+  position: relative;
+}
+
+/* Sidenav Section */
+.sidenav {
+  grid-area: sidenav;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  overflow-y: auto;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  z-index: 2; /* Needs to sit above the hamburger menu icon */
+  background-color: #394263;
+  transform: translateX(-245px);
+  transition: all .6s ease-in-out;
+}
+
+.sidenav.active {
+  transform: translateX(0);
+}
+
+/* Only visible on mobile screens */
+.sidenav_close-icon {
+  position: absolute;
+  visibility: visible;
+  top: 8px;
+  right: 12px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #ddd;
+}
+
+.sidenav_list {
+  padding: 0;
+  margin-top: 85px;
+  list-style-type: none;
+}
+
+.sidenav_list-item {
+  padding: 20px 20px 20px 40px;
+  color: #ddd;
+}
+
+.sidenav_list-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.menu-icon {
+  position: fixed;
+  display: flex;
+  top: 5px;
+  left: 10px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 1;
+  cursor: pointer;
+  padding: 12px;
+  background-color: #DADAE3;
+}
+
+/* Main Section */
+.main {
+  grid-area: main;
+  background-color: white;
+}
+
+.main-header {
+  display: block;
+  margin: 20px;
+  padding: 25px 25px;
+  line-height: 2.5;
+  height: 150px; /* Force our height since we don't have actual content yet */
+  background-color: #648dae; /* dark blue */
+  color: white;
+}
+
+.main-header_delete button {
+  text-decoration: none;
+  background: none;
+  border: white 1px solid;
+  padding: 10px 15px;
+  color: white;
+}
+
+.main-header_delete button:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Main Overview Cards (Add Tool, Add Material) */
+.main-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(265px, 1fr)); /* Where the magic happens */
+  grid-auto-rows: 150px;
+  grid-gap: 20px;
+  margin: 20px;
+}
+
+.overviewcard {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: #ebecf0; /* light grey */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.overviewcard-form {
+}
+
+.add-item-form {
+  display: block;
+}
+
+.add-item-form input {
+  outline: none;
+  border: none;
+  text-align: center;
+  padding: 0 50px 0 50px;
+  background: white;
+  height: 30px;
+  border-radius: 5px;
+  margin-bottom: 10px;  
+  font-size: 14px;
+}
+
+.add-item-form button {
+  color: white;
+  line-height: 1.2;
+  text-align: center;
+  height: 30px;
+  border-radius: 5px;
+  background: #57b846;
+  padding: 0 50px;
+}
+
+/* Main Cards (Budget (1st child), Tools (2nd child), Materials (3rd child)) */
+
+.main-cards {
+  column-count: 1;
+  column-gap: 20px;
+  margin: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: #82bef6;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  -webkit-column-break-inside: avoid;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.card:first-child { 
+  height: 600px;
+}
+
+.card:nth-child(2) {
+  height: 250px;
+}
+
+.card:nth-child(3) {
+  height: 330px;
+}
+
+.card-list {
+  list-style-type: none;
+  padding: 5%;
+  width: 80%;
+  height: 80%;
+  flex-wrap: wrap;
+  overflow: scroll;
+  position: relative;
+}
+
+.card-list li {
+  background-color: white;
+  padding: 2%;
+  margin-bottom: 2%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.card-list li > .card-list-delete {
+  visibility: hidden;
+  float: right;
+}
+
+.card-list li:hover > .card-list-delete {
+  visibility: visible;
+}
+
+.delete-item-button {
+  color: rgba(160, 164, 170, 1.0);
+  background: none;
+}
+
+/* Projects List Page */
+
+div.projects-header {
+  padding: 50px;
+  background-color: #648dae; /* dark blue */
+  color: white;
+}
+
+div.projects-header p {
+  margin-bottom: 40px;
+}
+
+div.projects-header a {
+  color: white;
+  padding: 10px 15px;
+  border-style: solid;
+  border-width: 1px;
+}
+
+div.projects-header a:hover {
+  color: black;
+  background-color: white;
+  border: none;
+}
+
+h2.projects-body-title {
+  padding-left: 50px;
+  text-align: center;
+}
+
+div.projects-body {
+  padding: 5%;
+  width: 100%;
+  background-color: #ebecf0; /* light grey */
+}
+
+div.projects-list-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 5%;
+}
+
+div.projects-list-card {
+  width: 30%;
+  text-align: center;
+  padding-top: 5%;
+  padding-right: 0%;
+  padding-bottom: 5%;
+  padding-left: 0%;
+  margin-bottom: 5%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  background-color: white;
+}
+
+div.projects-list-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Create new project form */
+div.create-new-project-container {
+  padding: 50px;
+  min-height: 400px;
+}
+
+div.create-new-project-form {
+  padding-bottom: 20px;
+}
+
+div.create-new-project-form input {
+  height: 40px;
+  width: 300px;
+  color: black;
+}
+
+div.create-new-project-container button {
+  padding: 10px 40px;
+  background-color: white;
+  color: black;
+  border-style: solid;
+  border-width: 1px;
+  text-decoration: none;
+}
+
+div.create-new-project-container button:hover {
+  background-color: black;
+  color: white;
+  border: none;
+}
+
+div.project-detail-footer-container {
+  padding: 2%;
+}
+
+/* Non-mobile Stylings, 750px breakpoint */
+@media only screen and (min-width: 46.875em) {
+  /* Show the sidenav */
+  .grid-container {
+    grid-template-columns: 0fr; /* Hide the sidenav for non-mobile screens */
+    grid-template-areas: 
+      "sidenav header"
+      "sidenav main"
+      "sidenav footer";
+  }
+  
+  .sidenav {
+    display: none;
+  }
+  
+  .sidenav_close-icon {
+    visibility: hidden;
+  }
+  
+  .menu-icon {
+    visibility: hidden;
+  }
+}
+
+/* Medium-sized screen breakpoint (tablet, 1050px) */
+@media only screen and (min-width: 65.625em) {
+  /* Break out main cards into two columns */
+  .main-cards {
+    column-count: 2;
+  }
+}
+
+/* User Profile Page Stylings */
+div.user-profile-container {
+  display: block;
+  text-align: center;
+  padding-top: 100px;
+}
+
+div.user-field {
+  padding-bottom: 50px;
+}
+
+div.user-profile-container div.user-field i {
+  font-size: 48px;
+}
+

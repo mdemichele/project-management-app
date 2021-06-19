@@ -1,0 +1,10 @@
+// Individual Material Display
+if (materials != undefined)
+  ul.card-list
+    each material in materials 
+      li= material.name
+        // Delete Button 
+        include material_delete_form.pug
+      
+      // Update Button  
+      //include material_update_form.pug

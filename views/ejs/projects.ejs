@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<head>
+  <title><%= title %></title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  
+  <!--Fonts-->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;900&display=swap" rel="stylesheet"/>
+  
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+
+<body>
+  
+  <div class="projects-header">
+    <h1> 
+      <%=title %>
+    </h1>
+    <p> Welcome to DIY Project Planner</p>
+    <a href="/projects/project/create">Create New Project</a>
+  </div>
+  
+  <div class="projects-body-title">
+    <% if (error) { %>
+      <p> There was an error displaying content</p>
+    <% } else { %>
+      <h2>Your Projects</h2>
+    <% } %>
+  </div>
+  
+  <div class="projects-body-list">
+    <% if (project_list===undefined) { %>
+      <li> There are no Projects </li>
+    <% } %>
+    <ul>
+      <% project_list.forEach(function(project) { %>
+        <li><a href="/projects/<%= project.id %>"><%=project.title%></a></li>
+      <% }) %>
+    </ul>
+  
+
+</body>

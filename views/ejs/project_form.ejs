@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<head>
+  <title><%= title %></title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  
+  <!--Fonts-->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;900&display=swap" rel="stylesheet"/>
+  
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+
+<body>
+  
+  <div class="create-new-project-container">
+    <a href="/projects">Back to All Projects</a>
+    <h1><%=title %></h1>
+    
+    <form method="POST" action="">
+      <div class="create-new-project-form">
+        <input type="text" placeholder="Enter Project Title" name="title" value=""></input>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+    
+    <!-- implement error handling -->
+  </div>
+  
+</body>

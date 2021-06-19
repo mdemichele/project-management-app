@@ -1,0 +1,5 @@
+form(method='POST' action='/projects/tools/delete').card-list-delete
+  div
+    input(type='hidden', name='projectId', required='true', value=id)
+    input(type='hidden', name='toolId', required='true', value=tool.id)
+  button(type='submit').fa.fa-trash.delete-item-button

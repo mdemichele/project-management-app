@@ -1,0 +1,79 @@
+doctype html
+html(lang='en')
+  head
+    title= title
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    
+    // Fonts
+    link(href='https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;900&display=swap' rel='stylesheet')
+    
+    link(rel='stylesheet' href='/fonts/font-awesome-4.7.0/css/font-awesome.min.css')
+    
+    link(rel='stylesheet' href='/css/style.css')
+
+  body
+    div.home-header 
+      h3 Welcome to DIY Project Planner
+    
+    // Login Section
+    div.home-login-section 
+      div.login-form
+        
+        // Login tabs (Sign up and log in)
+        ul.tab-group
+          li.tab.active
+            a#signup-button Sign Up
+          li.tab
+            a#login-button Log In
+      
+        div.tab-content 
+          // Sign up Section 
+          div#signup-section.form-section.active
+            h1 Sign Up for Free
+          
+            form(action="/register" method="post")
+              // If There is an error, display the error message here
+              if error
+                div.field-wrap #{error}
+                
+              div.top-row 
+                div.field-wrap
+                  input(type="text" placeholder="First Name*" required autocomplete="off" name='first')
+            
+                div.field-wrap 
+                  input(type="text" placeholder="Last Name*" required autocomplete="off" name='last')
+        
+              div.field-wrap
+                input(type="email" placeholder="Email*" autocomplete="off" required name='email')
+                
+              div.field-wrap
+                input(type="password" placeholder="Set Password*" required autocomplete="off" name='password')
+                
+              button(type="submit").button.button-block Get Started
+          // Login Section 
+          div#login-section.form-section
+            h1 Welcome Back!
+            
+            form(action="/login" method="post")
+              // If There is an error, display the error message here
+              if error
+                div.field-wrap #{error}
+              
+              div.field-wrap 
+                input(type="email" placeholder="Email Address*" required autocomplete="off" name='email')
+              
+              div.field-wrap
+                input(type="password" placeholder="Password*" required autocomplete="off" name='password')
+              
+              p.forgot
+                a(href="#") Forgot Password?
+              
+              button.button.button-block Log In
+    
+    // Footer Section 
+    div.footer
+      script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+      script(src="/js/jquery.js")
+
+    

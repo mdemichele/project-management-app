@@ -1,0 +1,5 @@
+form(method='POST' action='/projects/materials/update')
+  div
+    input(type='hidden', name='projectId', required='true', value=id)
+    input(type='hidden', name='materialId', required='true', value=material.id)
+  button(type='submit') Update Tool

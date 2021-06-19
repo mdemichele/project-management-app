@@ -1,0 +1,9 @@
+// Individual Tool Display 
+if (tools != undefined)
+  ul.card-list
+    each tool in tools 
+      li= tool.name
+        // Delete Tool Button
+        include tool_delete_form.pug
+      // Update Tool Button
+      //include tool_update_form.pug
