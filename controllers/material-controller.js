@@ -6,7 +6,7 @@ const { body, validationResult }  = require('express-validator');
 exports.materials_create_post = [
   
   // Validate and sanitize the tool field
-  body('tool', 'tool name required').trim().isLength({ min: 1 }).escape(),
+  body('material', 'material name required').trim().isLength({ min: 1 }).escape(),
   
   body('materialPrice', 'material Price required').trim().isLength({ min: 1 }).escape(),
   
