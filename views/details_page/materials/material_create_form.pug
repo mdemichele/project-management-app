@@ -1,6 +1,6 @@
 form(method='POST' action='/projects/materials/create').add-item-form
   input(type='hidden', name='projectId', value=id)
-  input(type='text', placeholder='name', name='material', value='')
-  input(type='text', placeholder='price', name='materialPrice', value='')
+  input(type='text', placeholder='name', autocomplete='false', name='material', value='')
+  input(type='text', placeholder='price', autocomplete='false', name='materialPrice', value='')
   button(type='submit') Add
   
