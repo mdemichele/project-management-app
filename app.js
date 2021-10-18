@@ -37,7 +37,7 @@ app.use(session({ secret: 'realestate',
                   saveUninitialized: false, 
                   cookie: {expires: false},
                   store: new MongoStore({ mongooseConnection: db })
-                }));               
+                }));        
 
 // Routes 
 const indexRoutes     = require('./routes/index-routes');
