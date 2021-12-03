@@ -15,8 +15,10 @@ exports.signup_new = (req, res, next) => {
       if (err) { return next(err) };
       
       if (found_user) {
-        // User already exists, redirect to login page 
-        res.redirect('/')
+        // User already exists, redirect to login page with error 
+        res.render('index', { error: 'A user with the same email already exists'});
+    
+        // Alert the server of the error 
         console.log('A user with the same email already exists');
       } else {
         // Create New User 
