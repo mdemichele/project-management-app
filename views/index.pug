@@ -35,7 +35,7 @@ html(lang='en')
             form(action="/register" method="post")
               // If There is an error, display the error message here
               if error
-                div.field-wrap #{error}
+                div.field-wrap.error-message #{error}
                 
               div.top-row 
                 div.field-wrap
@@ -58,7 +58,7 @@ html(lang='en')
             form(action="/login" method="post")
               // If There is an error, display the error message here
               if error
-                div.field-wrap #{error}
+                div.field-wrap.error-message #{error}
               
               div.field-wrap 
                 input(type="email" placeholder="Email Address*" required autocomplete="off" name='email')
