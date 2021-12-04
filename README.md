@@ -9,5 +9,6 @@ To run the program on your local machine, use the command:
 
 An example login account is set up:
 
-username: test2@test.com
-password: testPassword2
+username: test@test.com
+
+password: testPassword

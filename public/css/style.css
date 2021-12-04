@@ -565,16 +565,72 @@ div.project-detail-footer-container {
 
 /* User Profile Page Stylings */
 div.user-profile-container {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  width: 100%;
+}
+
+div.user-field-header {
+  padding-bottom: 30px;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.user-image-container {
+  width: 100%;
   text-align: center;
-  padding-top: 100px;
+  padding-bottom: 40px;
+}
+
+.user-logout-container {
+  width: 100%;
+  text-align: center;
+}
+
+div.user-profile-container div.user-field-header i.user-image {
+  font-size: 60px;
+}
+
+button.logout {
+  padding: 10px 30px;
+}
+
+button.logout:hover {
+  color: white;
+  background: black;
+}
+
+div.user-field-body {
+  padding: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 50%;
+  background: #ebecf0;
 }
 
 div.user-field {
-  padding-bottom: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-div.user-profile-container div.user-field i {
-  font-size: 48px;
+p.field-header {
+  width: 40%;
+  text-align: left;
 }
+
+p.field-body {
+  width: 40%;
+  text-align: right;
+}
+
 

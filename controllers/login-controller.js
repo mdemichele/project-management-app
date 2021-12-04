@@ -33,13 +33,21 @@ exports.signup_new = (req, res, next) => {
         
         // Create salt 
         let userSalt = user.makeSalt();
+        
+        // Hash Password 
+        const userHash = user.hashPassword(req.body.password);
+        
         // Encrypt Password 
-        const userHash = user.encryptPassword(req.body.password, userSalt);
-        // Enter encrypted password into user instance
+        const userEncrypted = user.encryptPassword(req.body.password);
+        
+        // Save hashed password, salt, and encryptedPassword into user instance
         user.salt = userSalt;
         user.hashed_password = userHash;
+        user.encrypted_password = userEncrypted;
+        
         // Console log is temporary, delete later 
-        // console.log(user);
+        console.log(user);
+        
         // Save user into database
         user.save( (err) => {
           if (err) { return next(err) };
