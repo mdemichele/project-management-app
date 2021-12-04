@@ -1,4 +1,6 @@
 const User    = require('../models/user-model');
+const config  = require('../config/config.js');
+const crypto  = require('crypto');
 
 // 00: Check Sign in Function 
 exports.check_sign_in = (req, res, next) => {
@@ -23,9 +25,33 @@ exports.display_all_users = (req, res, next) => {
 
 // 02: Displays individual user details page 
 exports.display_user_profile = (req, res, next) => {
+  console.log(req.session.user);
   
-  // Display user page 
-  res.render('user-profile', { user: req.session.user });
+  // Attempt to decrypt password here 
+  let user = new User({
+    name: 'placehold',
+    email: 'placehold',
+    hashed_password: 'placehold',
+    encrypted_password: 'placehold',
+    salt: 'placehold',
+    updated: new Date(),
+    created: new Date()
+  });
+  let plaintextPassword = user.decryptPassword(req.session.user.encrypted_password);
+  console.log(plaintextPassword);
+  // // Find user from database
+  // User.findById(req.session.user._id, (err, user) => {
+  //   if (err) { return next(err); }
+  // 
+  //   // Get user and decrypted password 
+  //   const plaintextPassword = user.decryptPassword(user.encrypted_password); 
+  //   console.log(plaintextPassword);
+  // 
+  //   // Display user page 
+  //   res.render('user-profile', { user: user, password: plaintextPassword });
+  // 
+  // });
+  res.render('user-profile', { user: req.session.user, password: 'test'} );
 }
 
 // 03: Deletes a user from the database 

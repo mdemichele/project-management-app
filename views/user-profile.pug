@@ -15,20 +15,33 @@ html(lang='en')
     include navbar.pug
     
     div.user-profile-container
-      div.user-field
-        i.fa.fa-user-circle(aria-hidden="true")
-      div.user-field
-        form.user-logout-form(action="/users/:id/logout" method="POST")
-          button(type="submit") Logout
-      div.user-field
-        p user name:
-        h2 #{user.name}
-      div.user-field
-        p email:
-        h2 #{user.email}
-      div.user-field
-        p password:
-        h2 #{user.hashed_password}
+      // Header Section: Image and logout
+      div.user-field-header
+        // Image 
+        div.user-image-container
+          i.fa.fa-user-circle(aria-hidden="true").user-image
+          
+        // Logout button
+        div.user-logout-container 
+          form.user-logout-form(action="/users/:id/logout" method="POST")
+            button(type="submit").logout Logout
+          
+      // Body Section: username, email, and password 
+      div.user-field-body
+        // Username 
+        div.user-field
+          p.field-header user name:
+          p.field-body #{user.name}
+        
+        // Email 
+        div.user-field
+          p.field-header email:
+          p.field-body #{user.email}
+        
+        // Password
+        div.user-field
+          p.field-header password:
+          p.field-body #{password}
       
     include footer.pug
     
