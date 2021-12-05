@@ -14,10 +14,12 @@ html(lang='en')
       
   body
     include navbar.pug
-    div.projects-header
-      h1= title
-      p Welcome to DIY Project Planner, #{user.name}
-      a(href='/projects/project/create') Create New Project
+    div.projects-header-container
+      h1.projects-header= title
+      p.projects-subheader Welcome to DIY Project Planner, #{user.name}
+      a(href='/projects/project/create').projects-create-new-button 
+        i.fa.fa-plus.projects-create-new-button-icon
+        span.project-create-new-text New Project
     
     //aside.sidenav
     

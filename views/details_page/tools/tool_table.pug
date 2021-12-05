@@ -1,0 +1,19 @@
+// Tool Table: Displays every tool in an organized table 
+
+if (tools != undefined)
+  // Table Section
+  table.table 
+    // Table Header 
+    thead
+      tr.table-header-row
+        th.table-header-column.name-column Name 
+        th.table-header-column.price-column Price
+        th.table-header-column.delete-column Delete
+    // Table Body
+    tbody
+      each tool in tools 
+        tr.table-body-row
+          td.table-body-column.name-column= tool.name
+          td.table-body-column.price-column= tool.price
+          td.table-body-column.delete-column 
+            include tool_delete_form.pug

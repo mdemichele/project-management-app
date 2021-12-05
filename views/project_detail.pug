@@ -12,40 +12,45 @@ block content
   // Tool, Material, and Budget Section
   div.main
   
+    // Header Section: Project Title and delete button 
     div.main-header
-      div.main-header_heading
-        h3 !{title}
+      div.main-header-title-container 
+        h3.main-header-title !{title}
       div.main-header_delete 
         form(method='POST' action=`/projects/delete`)
           div
             input(type='hidden', name='projectId', required='true', value=id)
           button(type='submit') Delete This Project
     
+    // Forms Section: Add Tools, Add Materials 
     div.main-overview
       // Add Tool Form
       div.overviewcard
         div.overviewcard-title 
-          h3 Add Tool
+          h3.card-title Add Tool
         div.overviewcard-form 
           include details_page/tools/tool_create_form.pug
+          
       // Add Material Form
       div.overviewcard
         div.overviewcard-title 
-          h3 Add Material 
+          h3.card-title Add Material 
         div.overviewcard-form 
           include details_page/materials/material_create_form.pug
     
     div.main-cards
       // Budget Section
       div.card 
-        h3 Budget
+        h3.card-title Budget
         include details_page/budget/details_budget.pug
+        
       // Tools List Section
       div.card 
-        h3 Tools
-        include details_page/tools/tool_list.pug
+        h3.card-title Tools
+        include details_page/tools/tool_table.pug
+        
       // Materials List Section
       div.card
-        h3 Materials
-        include details_page/materials/materials_list.pug
+        h3.card-title Materials
+        include details_page/materials/material_table.pug
     
