@@ -21,9 +21,10 @@ var svg = d3.select("#budget-pie-chart")
   .append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
     
+// Determine the color of each slice 
 var color = d3.scaleOrdinal()
   .domain(data)
-  .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56"]);
+  .range(["#98abc5", "#c38a37", "#dc3b33", "#6b486b", "#a05d56"]);
 
 var pie = d3.pie()
   .value(function(d) { return d.value; })
@@ -39,18 +40,20 @@ svg.selectAll('mySlices')
   .append('path')
     .attr('d', arcGenerator)
     .attr('fill', function(d){ return(color(d.data.key)) })
+    .attr("stroke", "white")
     .style("stroke-width", "2px")
     .style("opacity", 0.7)
     .style("transition", 2.0);
     
+// Define Text Labels Styles 
 svg.selectAll('mySlices')
   .data(data_ready)
   .enter()
   .append('text')
-  .text(function(d){ return d.data.key + ": $" + d.data.value })
+  .text(function(d){ return `${d.data.key}: \n$${d.data.value}` })
   .attr("transform", function(d) { return "translate(" + arcGenerator.centroid(d) + ")";  })
   .style("text-anchor", "middle")
-  .style("font-size", 17);
+  .style("font-size", 10);
     
   
   
