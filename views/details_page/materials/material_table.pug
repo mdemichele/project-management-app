@@ -1,0 +1,21 @@
+// Material Table: Displays every tool in an organized material 
+
+if (materials != undefined)
+
+  // Table Section 
+  table.table 
+    // Table Header 
+    thead 
+      tr.table-header-row 
+        th.table-header-column.name-column Name 
+        th.table-header-column.price-column Price
+        th.table-header-column.delete-column Delete
+    
+    // Table Body 
+    tbody 
+      each material in materials 
+        tr.table-body-row 
+          td.table-body-column.name-column= material.name
+          td.table-body-column.price-column= material.price
+          td.table-body-column.delete-column= material.delete
+            include material_delete_form.pug
